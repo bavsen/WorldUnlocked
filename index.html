@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,8 +13,13 @@
   <header class="site-header">
     <nav class="nav shell" aria-label="Main navigation">
       <a class="brand" href="#home"><span class="brand-icon">✦</span> WorldUnlocked<span class="brand-period">.</span></a>
-      <div class="nav-links">
-        <a href="#home">Home</a><a href="#map">Explore</a><a href="#stats">Statistics</a><a href="#passport">Passport</a>
+      <button id="mobile-menu-button" class="mobile-menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">☰ <span>Menu</span></button>
+      <div class="nav-links" id="primary-navigation">
+        <a href="#home">Home</a>
+        <a href="#map">Explore</a>
+        <a href="#stats">Statistics</a>
+        <a href="#passport">Passport</a>
+        <a href="#backup">Backup</a>
       </div>
       <a href="#map" class="nav-cta">Start exploring <span aria-hidden="true">↗</span></a>
     </nav>
@@ -33,71 +39,183 @@
           <div class="hero-micro"><span class="micro-line"></span> ONE WORLD. INFINITE STORIES.</div>
         </div>
         <div class="hero-art" aria-label="Decorative globe illustration" role="img">
-          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
           <div class="planet"><div class="planet-shine"></div><span aria-hidden="true">🌍</span></div>
-          <div class="orbit-spark spark-a"></div><div class="orbit-spark spark-b"></div>
+          <div class="orbit-spark spark-a"></div>
+          <div class="orbit-spark spark-b"></div>
           <div class="floating-tag tag-top"><span class="tag-symbol">✧</span> THE WORLD AWAITS</div>
           <div class="floating-tag tag-bottom">YOUR NEXT CHAPTER <span>↗</span></div>
         </div>
       </div>
-      <div class="shell hero-foot"><span>DESIGNED FOR THE CURIOUS</span><a href="#map">SCROLL TO EXPLORE ↓</a></div>
+      <div class="shell hero-foot">
+        <span>DESIGNED FOR THE CURIOUS</span>
+        <a href="#map">SCROLL TO EXPLORE ↓</a>
+      </div>
     </section>
 
     <section id="map" class="section shell">
-      <div class="section-heading"><p class="eyebrow">01 / THE EXPLORER</p><h2>The world is yours.</h2><p>Click a country to record where you've been, save places you dream of visiting and build your own travel collection.</p></div>
-      <div class="map-toolbar"><div class="legend"><span><i class="legend-dot visited"></i> Visited</span><span><i class="legend-dot wishlist"></i> Want to visit</span><span><i class="legend-dot unseen"></i> Unexplored</span></div><span class="toolbar-tip">CLICK ANY COUNTRY TO BEGIN</span></div>
+      <div class="section-heading">
+        <p class="eyebrow">01 / THE EXPLORER</p>
+        <h2>The world is yours.</h2>
+        <p>Click a country to record where you've been, save places you dream of visiting and build your own travel collection.</p>
+      </div>
+      <div class="map-toolbar">
+        <div class="legend">
+          <span><i class="legend-dot visited"></i> Visited</span>
+          <span><i class="legend-dot wishlist"></i> Want to visit</span>
+          <span><i class="legend-dot unseen"></i> Unexplored</span>
+        </div>
+        <span class="toolbar-tip">CLICK ANY COUNTRY TO BEGIN</span>
+      </div>
       <div id="world-map" aria-label="Interactive world map">Loading world map…</div>
       <p class="map-caption">✦ &nbsp; Every pin is a story waiting to be told.</p>
     </section>
 
     <section id="stats" class="section stats-section">
-      <div class="shell"><div class="section-heading"><p class="eyebrow">02 / YOUR JOURNEY</p><h2>Every journey counts.</h2><p>A little glimpse into the places you've explored and the adventures still ahead.</p></div>
-        <div class="stats-grid">
-          <article class="stat-card"><span class="stat-top">01 — EXPLORED</span><strong id="visited-count">0</strong><span class="stat-label">Countries visited</span><span class="stat-art">✈</span></article>
-          <article class="stat-card"><span class="stat-top">02 — DISCOVERED</span><strong id="cities-count">0</strong><span class="stat-label">Cities remembered</span><span class="stat-art">⌖</span></article>
-          <article class="stat-card"><span class="stat-top">03 — UP NEXT</span><strong id="wishlist-count">0</strong><span class="stat-label">Countries on wishlist</span><span class="stat-art">☆</span></article>
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow">02 / YOUR JOURNEY</p>
+          <h2>Every journey counts.</h2>
+          <p>A little glimpse into the places you've explored and the adventures still ahead.</p>
         </div>
-        <div class="world-progress"><div><span>YOUR WORLD EXPLORATION</span><strong id="world-progress">0.0%</strong></div><div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div><small>Approximate progress based on 195 countries</small></div>
+        <div class="stats-grid">
+          <article class="stat-card">
+            <span class="stat-top">01 — EXPLORED</span>
+            <strong id="visited-count">0</strong>
+            <span class="stat-label">Countries visited</span>
+            <span class="stat-art">✈</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-top">02 — DISCOVERED</span>
+            <strong id="cities-count">0</strong>
+            <span class="stat-label">Cities remembered</span>
+            <span class="stat-art">⌖</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-top">03 — UP NEXT</span>
+            <strong id="wishlist-count">0</strong>
+            <span class="stat-label">Countries on wishlist</span>
+            <span class="stat-art">☆</span>
+          </article>
+        </div>
+        <div class="world-progress">
+          <div>
+            <span>YOUR WORLD EXPLORATION</span>
+            <strong id="world-progress">0.0%</strong>
+          </div>
+          <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+          <small>Approximate progress based on 195 countries</small>
+        </div>
       </div>
     </section>
 
     <section id="passport" class="section shell passport-section">
-      <div class="section-heading"><p class="eyebrow eyebrow-gold">03 / THE TRAVEL ARCHIVE</p><div class="passport-flourish">✦</div><h2>Collected, not forgotten.</h2><p>Every destination has a chapter. Open a country to revisit its cities, moments and photographs.</p></div>
-      <div class="passport-toolbar"><div><span class="archive-kicker">THE PERSONAL ARCHIVE</span><p>Your collection of places</p></div><span id="passport-count">0 destinations</span></div>
-      <div id="passport-stamps" class="passport-grid" aria-live="polite"><p>Your passport is waiting. Mark a country as visited on the map to begin.</p></div>
+      <div class="section-heading">
+        <p class="eyebrow eyebrow-gold">03 / THE TRAVEL ARCHIVE</p>
+        <div class="passport-flourish">✦</div>
+        <h2>Collected, not forgotten.</h2>
+        <p>Every destination has a chapter. Open a country to revisit its cities, moments and photographs.</p>
+      </div>
+      <div class="passport-toolbar">
+        <div>
+          <span class="archive-kicker">THE PERSONAL ARCHIVE</span>
+          <p>Your collection of places</p>
+        </div>
+        <span id="passport-count">0 destinations</span>
+      </div>
+      <div id="passport-stamps" class="passport-grid" aria-live="polite">
+        <p>Your passport is waiting. Mark a country as visited on the map to begin.</p>
+      </div>
     </section>
 
-    <section class="closing"><div class="shell"><span class="closing-star">✦</span><p class="eyebrow eyebrow-gold">THE STORY CONTINUES</p><h2>Go somewhere.<br><em>Feel everything.</em></h2><p>Your next unforgettable chapter is just around the corner.</p><a href="#map" class="btn btn-primary">Continue exploring ↗</a></div></section>
+    <section id="backup" class="section shell backup-section" aria-labelledby="backup-heading">
+      <div class="section-heading">
+        <p class="eyebrow eyebrow-gold">04 / KEEP YOUR MEMORIES SAFE</p>
+        <h2 id="backup-heading">Your memories, your copy.</h2>
+        <p>Download a private backup with all your countries, cities, travel notes and photos. Restore it on a different device when you need to.</p>
+      </div>
+      <div class="backup-panel">
+        <div class="backup-action">
+          <span class="backup-symbol" aria-hidden="true">↓</span>
+          <h3>Export your travels</h3>
+          <p>Save a complete JSON backup to your device. Keep it somewhere private.</p>
+          <button id="export-data" type="button" class="btn btn-primary">Download backup ↓</button>
+        </div>
+        <div class="backup-action">
+          <span class="backup-symbol" aria-hidden="true">↑</span>
+          <h3>Import a backup</h3>
+          <p>Restore your saved travels and photos. Importing replaces the current data on this device.</p>
+          <label for="import-data" class="btn btn-outline import-label">Choose backup file ↑</label>
+          <input id="import-data" type="file" accept=".json,application/json" aria-label="Choose WorldUnlocked backup JSON file">
+        </div>
+        <p id="backup-status" class="backup-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="shell">
+        <span class="closing-star">✦</span>
+        <p class="eyebrow eyebrow-gold">THE STORY CONTINUES</p>
+        <h2>Go somewhere.<br><em>Feel everything.</em></h2>
+        <p>Your next unforgettable chapter is just around the corner.</p>
+        <a href="#map" class="btn btn-primary">Continue exploring ↗</a>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer"><div class="shell footer-inner"><a class="brand" href="#home"><span class="brand-icon">✦</span> WorldUnlocked<span class="brand-period">.</span></a><span>Explore. Remember. Repeat.</span><span>© 2026 WorldUnlocked</span></div></footer>
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <a class="brand" href="#home"><span class="brand-icon">✦</span> WorldUnlocked<span class="brand-period">.</span></a>
+      <span>Explore. Remember. Repeat.</span>
+      <span>© 2026 WorldUnlocked</span>
+    </div>
+  </footer>
 
-  <!-- Editor for a selected country. All data is stored locally in this browser. -->
+  <!-- COUNTRY EDITOR -->
   <div id="country-modal" class="overlay" hidden>
     <section class="dialog edit-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-country">
       <button id="modal-close" class="close-button" aria-label="Close">×</button>
-      <p class="eyebrow eyebrow-gold">YOUR DESTINATION</p><h2 id="modal-country">Country</h2><p class="dialog-intro">How does this place fit into your story?</p>
+      <p class="eyebrow eyebrow-gold">YOUR DESTINATION</p>
+      <h2 id="modal-country">Country</h2>
+      <p class="dialog-intro">How does this place fit into your story?</p>
+
       <div class="status-actions">
-        <button id="choose-visited" class="status-button"><strong>✓ &nbsp; Visited</strong><small>I've been here</small></button>
-        <button id="choose-wishlist" class="status-button"><strong>☆ &nbsp; Want to visit</strong><small>Save for another day</small></button>
-        <button id="choose-remove" class="status-button danger"><strong>× &nbsp; Remove</strong><small>Remove this destination</small></button>
+        <button id="choose-visited" class="status-button">
+          <strong>✓ &nbsp; Visited</strong><small>I've been here</small>
+        </button>
+        <button id="choose-wishlist" class="status-button">
+          <strong>☆ &nbsp; Want to visit</strong><small>Save for another day</small>
+        </button>
+        <button id="choose-remove" class="status-button danger">
+          <strong>× &nbsp; Remove</strong><small>Remove this destination</small>
+        </button>
       </div>
+
       <div id="travel-editor" class="travel-editor" hidden>
         <div class="editor-title"><span>✦</span><h3>My travel memories</h3></div>
-        <label for="travel-year">Year visited</label><select id="travel-year"><option value="">Select year (optional)</option></select>
+        <label for="travel-year">Year visited</label>
+        <select id="travel-year"><option value="">Select year (optional)</option></select>
         <label for="city-input">Cities I've visited</label>
-        <div class="city-entry"><input id="city-input" type="text" maxlength="90" placeholder="E.g. Oslo, Bergen, Tromsø"><button id="add-city" type="button">Add city +</button></div>
+        <div class="city-entry">
+          <input id="city-input" type="text" maxlength="90" placeholder="E.g. Oslo, Bergen, Tromsø">
+          <button id="add-city" type="button">Add city +</button>
+        </div>
         <p class="field-hint">Add as many cities as you like, one at a time.</p>
         <div id="city-chips" class="city-chips" aria-live="polite"></div>
-        <label for="travel-notes">My story</label><textarea id="travel-notes" rows="4" maxlength="3000" placeholder="Favourite moments, food, people, experiences…"></textarea>
-        <label for="travel-photos">Travel photos</label><input id="travel-photos" type="file" accept="image/jpeg,image/png,image/webp" multiple><p class="field-hint">Up to 5 photos per country · JPG / PNG / WebP · 4 MB each</p>
-        <p id="photo-message" class="photo-message" role="status"></p><div id="modal-photo-gallery" class="modal-photo-gallery"></div>
+        <label for="travel-notes">My story</label>
+        <textarea id="travel-notes" rows="4" maxlength="3000" placeholder="Favourite moments, food, people, experiences…"></textarea>
+        <label for="travel-photos">Travel photos</label>
+        <input id="travel-photos" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+        <p class="field-hint">Up to 5 photos per country · JPG / PNG / WebP · 4 MB each</p>
+        <p id="photo-message" class="photo-message" role="status"></p>
+        <div id="modal-photo-gallery" class="modal-photo-gallery"></div>
         <button id="save-travel" class="btn btn-primary save-button" type="button">Save my memories →</button>
       </div>
     </section>
   </div>
 
-  <!-- Large, read-only passport detail view. -->
+  <!-- PASSPORT DETAIL -->
   <div id="detail-modal" class="overlay" hidden>
     <section class="dialog detail-dialog" role="dialog" aria-modal="true" aria-labelledby="detail-country">
       <button id="detail-close" class="close-button" aria-label="Close">×</button>
@@ -105,7 +223,10 @@
       <h2 id="detail-country">Country</h2>
       <div id="detail-meta" class="detail-meta"></div>
       <div id="detail-gallery" class="detail-gallery"></div>
-      <div class="detail-story"><h3>A chapter worth remembering</h3><p id="detail-notes"></p></div>
+      <div class="detail-story">
+        <h3>A chapter worth remembering</h3>
+        <p id="detail-notes"></p>
+      </div>
       <button id="detail-edit" class="btn btn-outline" type="button">Edit this journey ↗</button>
     </section>
   </div>
@@ -115,4 +236,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
